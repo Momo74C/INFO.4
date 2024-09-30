@@ -3,7 +3,8 @@
 
 #include <stdio.h>
 
-struct tempo {
+struct tempo 
+{
     int seconds;
     int minutes;
     int hours;
@@ -45,7 +46,7 @@ int main()
     struct tempo t1, t2, diff;
 
 
-    t1.hours = 8;
+    t1.hours = 10;
     t1.minutes = 30;
     t1.seconds = 45;
 
