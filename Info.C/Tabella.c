@@ -5,6 +5,7 @@
 #include <stdlib.h> 
 #include <time.h>   
 #define N 3
+#define DIM_COGN 30
 
 struct DataNascita
 {
@@ -16,7 +17,7 @@ struct DataNascita
 struct Studente
 {
     char nome[30];
-    char cognome[30];
+    char cognome[DIM_COGN];
     int voti[N];
     struct DataNascita dataNascita;
 } typedef Studente;
@@ -88,6 +89,10 @@ void stampa(Studente tab[])
 {
     for (int i = 0; i < N; i++)
     {
+         if (tab[i].cognome[0] >= 'a' && tab[i].cognome[0] <= 'z')
+        {
+            tab[i].cognome[0] = tab[i].cognome[0] - ( 'a' - 'A' );
+        }
         printf("************************************************************** \n");
         printf("Il nome e': %s\n", tab[i].nome);
         printf("Il cognome e': %s\n", tab[i].cognome);
@@ -99,7 +104,7 @@ void stampa(Studente tab[])
 
         for (int j = 0; j < N; j++)
         {
-            printf("Il voto %d e': %d\n", j + 1, tab[i].voti[j]);
+            printf("Il voto %d e': %d\n", j + 1, tab[i].voti[j]);    //j+1 per iniziare con il voto 1 non con il voto 0.
         }
     }
 }
@@ -128,7 +133,7 @@ void StampamediaEContaSufficienti(Studente tab[])
         float media = (float)somma / N;
         printf("La media dei voti di %s %s e' : %.2f\n", tab[i].nome, tab[i].cognome, media);
 
-        if (media >= 6.0)
+        if (media >= 6)
         {
             cont++;
         }
@@ -145,8 +150,33 @@ int studenti10(Studente tab[])
             if (tab[i].voti[j] == 10)
             {
                 cont++;
+                break;
             }
         }
     }
     printf("Numero di studenti con almeno un voto pari a 10 e' : %d\n", cont);
 }
+/*int studenti10(Studente t[])
+{
+    int count = 0; // Inizializza il contatore a 0
+
+    for (int i = 0; i < N; i++)
+    {
+        int contatore10 = 0; 
+
+        for (int j = 0; j < N; j++)
+        {
+            if (t[i].voti[j] == 10) 
+            {
+                contatore10++; 
+                cont++;  
+
+                if (contatore10 > 1) 
+                {
+                }
+            }
+        }
+    }
+
+    return count; 
+}*/
