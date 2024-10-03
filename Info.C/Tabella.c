@@ -25,8 +25,9 @@ struct Studente
 void carica(struct Studente tab[]);
 void stampa(struct Studente tab[]);
 int riccognome(struct Studente tab[], char x[]);
-void StampamediaEContaSufficienti(struct Studente tab[]);
+int StampamediaEContaSufficienti(struct Studente tab[]);
 int studenti10(struct Studente tab[]);
+void formattaCogn(Studente t[]);
 
 int main()
 {
@@ -51,7 +52,7 @@ int main()
     {
         printf("Cognome non trovato.\n");
     }
-    StampamediaEContaSufficienti(tab);
+    int stampa = StampamediaEContaSufficienti(tab);
     int r =  studenti10(tab);
 
 
@@ -89,10 +90,8 @@ void stampa(Studente tab[])
 {
     for (int i = 0; i < N; i++)
     {
-         if (tab[i].cognome[0] >= 'a' && tab[i].cognome[0] <= 'z')
-        {
-            tab[i].cognome[0] = tab[i].cognome[0] - ( 'a' - 'A' );
-        }
+		    formattaCogn(tab);
+		
         printf("************************************************************** \n");
         printf("Il nome e': %s\n", tab[i].nome);
         printf("Il cognome e': %s\n", tab[i].cognome);
@@ -120,7 +119,7 @@ int riccognome(Studente tab[], char x[])
     }
     return -1;
 }
-void StampamediaEContaSufficienti(Studente tab[])
+int StampamediaEContaSufficienti(Studente tab[])
 {
     int cont = 0;
     for (int i = 0; i < N; i++)
@@ -156,27 +155,38 @@ int studenti10(Studente tab[])
     }
     printf("Numero di studenti con almeno un voto pari a 10 e' : %d\n", cont);
 }
-/*int studenti10(Studente t[])
+/*void formattaCogn(Studente tab[])
 {
-    int count = 0; // Inizializza il contatore a 0
-
-    for (int i = 0; i < N; i++)
+	for (int i = 0; i < N; i++)
     {
-        int contatore10 = 0; 
-
-        for (int j = 0; j < N; j++)
+         if (tab[i].cognome[0] >= 'a' && tab[i].cognome[0] <= 'z')
         {
-            if (t[i].voti[j] == 10) 
-            {
-                contatore10++; 
-                cont++;  
-
-                if (contatore10 > 1) 
-                {
-                }
-            }
+            tab[i].cognome[0] = tab[i].cognome[0] - 32 ;
         }
-    }
-
-    return count; 
+        for(int j=1;tab[i].cognome[j] != '\0';j++)
+        {
+        	if (tab[i].cognome[j] >= 'A' && tab[i].cognome[j] <= 'Z')
+        	{
+           	 	tab[i].cognome[j] = tab[i].cognome[j] + 32 ;
+        	}
+		}
+	}
+}*/
+/*void formattaCogn(Studente tab[])
+{
+	int i = 0;
+	int j = 0;
+	while(tab[i].cognome[j] != '\0')
+	{
+		if (tab[i].cognome[0] >= 'a' && tab[i].cognome[0] <= 'z')
+        {
+            tab[i].cognome[0] = tab[i].cognome[0] - 32 ;
+        }
+    
+        if (tab[i].cognome[j] >= 'A' && tab[i].cognome[j] <= 'Z')
+        {
+           	 	tab[i].cognome[j] = tab[i].cognome[j] + 32 ;
+        }
+		
+	}
 }*/
