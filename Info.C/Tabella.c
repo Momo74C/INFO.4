@@ -98,11 +98,11 @@ void stampa(Studente tab[])
         printf("Data di nascita: \t%d/%d/%d\n\n",
                tab[i].dataNascita.giorno,
                tab[i].dataNascita.mese,
-               tab[i].dataNascita.anno)
+               tab[i].dataNascita.anno);
 
         for (int j = 0; j < N; j++)
         {
-            printf("Il voto %d e': %d\ns", j + 1, tab[i].voti[j]);    //j+1 per iniziare con il voto 1 non con il voto 0.
+            printf("Il voto %d e': %d\n", j + 1, tab[i].voti[j]);    //j+1 per iniziare con il voto 1 non con il voto 0.
         }
     }
 }
