@@ -92,18 +92,18 @@ void stampa(Studente tab[])
     {
 		    formattaCogn(tab);
 		
-        printf("************************************************************** \n");
-        printf("Il nome e': %s\n", tab[i].nome);
-        printf("Il cognome e': %s\n", tab[i].cognome);
-        printf("Data di nascita: %d/%d/%d\n",
+        printf("\n**************************************************************\n");
+        printf("Il nome e': \t\t\t%s\n", tab[i].nome);
+        printf("Il cognome e': \t\t%s\n", tab[i].cognome);
+        printf("Data di nascita: \t%d/%d/%d\n\n",
                tab[i].dataNascita.giorno,
                tab[i].dataNascita.mese,
                tab[i].dataNascita.anno);
-        printf("**************************************************************\n");
+        printf("\n**************************************************************\n");
 
         for (int j = 0; j < N; j++)
         {
-            printf("Il voto %d e': %d\n", j + 1, tab[i].voti[j]);    //j+1 per iniziare con il voto 1 non con il voto 0.
+            printf("Il voto %d e': %d\t", j + 1, tab[i].voti[j]);    //j+1 per iniziare con il voto 1 non con il voto 0.
         }
     }
 }
@@ -155,7 +155,7 @@ int studenti10(Studente tab[])
     }
     printf("Numero di studenti con almeno un voto pari a 10 e' : %d\n", cont);
 }
-/*void formattaCogn(Studente tab[])
+void formattaCogn(Studente tab[])
 {
 	for (int i = 0; i < N; i++)
     {
@@ -171,22 +171,4 @@ int studenti10(Studente tab[])
         	}
 		}
 	}
-}*/
-/*void formattaCogn(Studente tab[])
-{
-	int i = 0;
-	int j = 0;
-	while(tab[i].cognome[j] != '\0')
-	{
-		if (tab[i].cognome[0] >= 'a' && tab[i].cognome[0] <= 'z')
-        {
-            tab[i].cognome[0] = tab[i].cognome[0] - 32 ;
-        }
-    
-        if (tab[i].cognome[j] >= 'A' && tab[i].cognome[j] <= 'Z')
-        {
-           	 	tab[i].cognome[j] = tab[i].cognome[j] + 32 ;
-        }
-		
-	}
-}*/
+}
