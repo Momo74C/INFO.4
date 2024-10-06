@@ -88,10 +88,11 @@ void carica(Studente tab[])
 
 void stampa(Studente tab[])
 {
+    printf("I DATI SOMO\n");
     for (int i = 0; i < N; i++)
     {
 		    formattaCogn(tab);
-		printf("I DATI SOMO\n");
+		
         printf("\n**************************************************************\n");
         printf("Il nome e': \t\t%s\n", tab[i].nome);
         printf("Il cognome e': \t\t%s\n", tab[i].cognome);
