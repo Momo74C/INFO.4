@@ -91,19 +91,18 @@ void stampa(Studente tab[])
     for (int i = 0; i < N; i++)
     {
 		    formattaCogn(tab);
-		
+		printf("I DATI SOMO\n");
         printf("\n**************************************************************\n");
-        printf("Il nome e': \t\t\t%s\n", tab[i].nome);
+        printf("Il nome e': \t\t%s\n", tab[i].nome);
         printf("Il cognome e': \t\t%s\n", tab[i].cognome);
         printf("Data di nascita: \t%d/%d/%d\n\n",
                tab[i].dataNascita.giorno,
                tab[i].dataNascita.mese,
-               tab[i].dataNascita.anno);
-        printf("\n**************************************************************\n");
+               tab[i].dataNascita.anno)
 
         for (int j = 0; j < N; j++)
         {
-            printf("Il voto %d e': %d\t", j + 1, tab[i].voti[j]);    //j+1 per iniziare con il voto 1 non con il voto 0.
+            printf("Il voto %d e': %d\ns", j + 1, tab[i].voti[j]);    //j+1 per iniziare con il voto 1 non con il voto 0.
         }
     }
 }
