@@ -55,7 +55,7 @@ int main()
     int stampa = StampamediaEContaSufficienti(tab);
     printf("il numero di studenti con media maggiore o ugule al 6 e' : %d\n ", stampa);
     int r =  studenti10(tab);
-    printf("il numero di studenti che hanno almeno un voto pari a 10 e' : %d ", r);
+    printf("il numero di studenti che hanno almeno un voto pari a 10 e' : %d\n ", r);
     return 0;
 }
 
