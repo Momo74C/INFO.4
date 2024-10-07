@@ -102,7 +102,7 @@ void stampa(Studente tab[])
 
         for (int j = 0; j < N; j++)
         {
-            printf("Il voto %d e': %d\t\t", j + 1, tab[i].voti[j]);    //j+1 per iniziare con il voto 1 non con il voto 0.
+            printf("Il voto %d e': %d\n", j + 1, tab[i].voti[j]);    //j+1 per iniziare con il voto 1 non con il voto 0.
         }
         ("\n\n");
     }
