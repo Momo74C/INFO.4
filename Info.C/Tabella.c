@@ -27,13 +27,11 @@ void stampa(struct Studente tab[]);
 int riccognome(struct Studente tab[], char x[]);
 int StampamediaEContaSufficienti(struct Studente tab[]);
 int studenti10(struct Studente tab[]);
-void formattaCogn(struct Studente t[]);
-void ordina(struct v[]);
+void formattaCogn(Studente t[]);
 
 int main()
 {
     Studente tab[N];
-    int v[N];
     char y[30];
 
     srand(time(NULL));
@@ -104,7 +102,6 @@ void stampa(Studente tab[])
 
         for (int j = 0; j < N; j++)
         {
-            ordina(v);
             printf("Il voto %d e': %d\n", j + 1, tab[i].voti[j]);    //j+1 per iniziare con il voto 1 non con il voto 0.
             ("\n\n");
         }
@@ -174,21 +171,4 @@ void formattaCogn(Studente tab[])
         	}
 		}
 	}
-}
-void ordina(struct v[])
-{
-    int k = 0;
-    for(int i=0;i<N-1;i++)
-    {
-        for(int j=0;j<N-i-1;i++)
-        {
-            if(v[j] > v[j+1])
-            {
-                k=v[j];
-                v[j]=v[j+1];
-                v[j+1]=k;
-            }
-
-        }
-    } 
 }
