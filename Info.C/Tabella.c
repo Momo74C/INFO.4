@@ -43,7 +43,15 @@ int main()
     scanf("%s", y);  
 
     int ris = riccognome(tab, y);
-    printf("il numero di cognomi trovati e %d", ris);
+
+    if (ris != -1)
+    {
+        printf("Cognome trovato alla posizione: %d\n", ris);
+    }
+    else
+    {
+        printf("Cognome non trovato.\n");
+    }
     int stampa = StampamediaEContaSufficienti(tab);
     printf("il numero di studenti con media maggiore o ugule al 6 e' : %d\n ", stampa);
     int r =  studenti10(tab);
@@ -102,15 +110,14 @@ void stampa(Studente tab[])
 
 int riccognome(Studente tab[], char x[])
 {
-    int cont = 0;
     for (int i = 0; i < N; i++)
     {
-        if (strcmp(tab[i].cognome, x) == 0)
+        if (strcmp(tab[i].cognome, x))
         {
-            cont++;
+            return i;
         }
     }
-    return cont;
+    return -1;
 }
 int StampamediaEContaSufficienti(Studente tab[])
 {
