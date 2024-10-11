@@ -38,7 +38,7 @@ int main()
 
     carica(tab);
     stampa(tab);
-
+    printf("\n\n");
     printf("Inserisci il cognome che vuoi cercare: \n");
     scanf("%s", y);  
 
@@ -105,7 +105,6 @@ void stampa(Studente tab[])
             printf("Il voto %d e': %d\n", j + 1, tab[i].voti[j]);    //j+1 per iniziare con il voto 1 non con il voto 0.
         }
     }
-    ("\n\n");
 }
 
 int riccognome(Studente tab[], char x[])
