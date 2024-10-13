@@ -111,7 +111,7 @@ int riccognome(Studente tab[], char x[])
 {
     for (int i = 0; i < N; i++)
     {
-        if (strcmp(tab[i].cognome, x))
+        if (strcmp(tab[i].cognome, x) == 0 )
         {
             return i;
         }
