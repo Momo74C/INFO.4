@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdlib.h> 
 #include <time.h>   
-#define N 2
+#define N 4
 #define DIM_COGN 30
 
 struct DataNascita
