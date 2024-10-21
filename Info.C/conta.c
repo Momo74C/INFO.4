@@ -20,7 +20,6 @@ int main()
         {   
             contC++;
         }
-        fputs(riga, file2);
         contR++;
     }
     printf("il numero di righe e' %d\n", contR);
