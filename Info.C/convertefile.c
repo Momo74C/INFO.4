@@ -10,17 +10,15 @@ int main()
     }
 
      
-    char riga[100]; 
-    while (fgets(riga, sizeof(riga), file1) != NULL) 
+    int ca;
+    while ((ca = fgetc(file1)) != EOF) 
     {
-        for(int i=0;i<100;i++)
-        {   
-            if (riga[i] >= 'a' && riga[i] <= 'z')
-            {
-                riga[i] = riga[i] - 32 ;
-            }
+       
+        if(ca >= 'a' && ca <= 'z')
+        {
+            ca = ca - 32 ;
         }
-        fputs(riga, file2);
+        fputc(ca, file2);
     }
 
     fclose(file1);

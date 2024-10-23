@@ -9,10 +9,10 @@ int main()
         perror("Errore durante l'apertura del file");
     }
 
-    char riga[100]; 
-    while (fgets(riga, sizeof(riga), file1) != NULL) 
+    int ca; 
+    while ((ca = fgetc(file1)) != EOF) 
     {
-        fputs(riga, file2);
+        fputc(ca, file2);
     }
 
     fclose(file1);
