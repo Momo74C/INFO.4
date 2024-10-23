@@ -8,19 +8,37 @@ int main()
         perror("Errore durante l'apertura del file");
     }
      
-    int contR=0;
+    int contR=1;
+    int contP=1;
     int contC=0;
 
-    char riga[50]; 
-    while (fgets(riga, sizeof(riga), file1) != NULL) 
+    int statoparola;
+    int ca;
+    while ((ca = fgetc(file1)) != EOF) 
     {
-        for(int i=0;i<100 && i != ' ';i++)
-        {   
+        if(ca != ' ' && ca != '\t' && ca != '\n')
+        {
             contC++;
         }
-        contR++;
+
+        if(ca == '\n')
+        {
+            contR++;
+        }
+
+        if(ca != ' ' && ca != '\t' && ca != '\n' && statoparola == 0)
+        {
+            statoparola = 1;
+            contP++;
+        }
+        else if(ca == ' ' || ca == '\t' || ca == '\n')
+        {
+            statoparola = 0;
+        }
+        
     }
     printf("il numero di caratterri e' %d\n", contC);
+    printf("il numero di parole e' %d\n", contP);
     printf("il numero di righe e' %d\n", contR);
     
 
