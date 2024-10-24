@@ -1,0 +1,4 @@
+[2024-10-24 18:10:34] Messaggio di log 1
+[2024-10-24 18:10:34] Messaggio di log 2
+[2024-10-24 19:09:16] BENVENUTO MOHAMED
+[2024-10-24 19:09:16] Messaggio di log 1
