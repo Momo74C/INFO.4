@@ -2,16 +2,22 @@
 #include <string.h>
 int main() 
 {
-    FILE* file1 = fopen("file.txt", "r");
-    FILE* file2 = fopen("momo.txt", "w");
+    FILE* file1 = fopen("../File/file.txt", "r");
+    FILE* file2 = fopen("../File/momo.txt", "w");
     if (file1 == NULL || file2 == NULL) 
     {
         perror("Errore durante l'apertura del file");
     }
 
-    int ca; 
+     
+    int ca;
     while ((ca = fgetc(file1)) != EOF) 
     {
+       
+        if(ca >= 'a' && ca <= 'z')
+        {
+            ca = ca - 32 ;
+        }
         fputc(ca, file2);
     }
 

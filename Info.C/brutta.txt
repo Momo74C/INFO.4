@@ -1,8 +1,0 @@
-if(ca % 2 == 0 && ca != ' ')
-       {
-            fputc(ca,file2);
-       }
-       else
-       {
-            fputc(ca,file3);
-       }
