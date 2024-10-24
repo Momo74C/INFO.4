@@ -7,6 +7,7 @@ int main()
     if (file1 == NULL) 
     {
         perror("Errore durante l'apertura del file");
+        return 1;
     }
      
     int contR=1;
