@@ -20,7 +20,7 @@ void writeLog(FILE *logFile, const char *message)
 int main(int argc, char *argv[]) 
 {
     // Creazione del file di log in modalità append
-    FILE *logFile = fopen("log.txt", "a");
+    FILE *logFile = fopen("../File/log.txt", "a");
     if (logFile == NULL) 
     {
         perror("Errore nell'apertura del file di log");
