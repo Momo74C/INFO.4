@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h> 
 #include <time.h>   
-#define N 4
+#define N 1
 #define DIM_COGN 30
 
 
@@ -14,7 +14,7 @@ struct Studente
 } typedef Studente;
 
 void carica(Studente buffer[],FILE *file);
-void stampa(Studente buffer[],FILE *file);
+void stampa(Studente buffer[],FILE *file); 
 
 int main()
 {
@@ -27,6 +27,7 @@ int main()
 
     fwrite(&buffer,sizeof(Studente),1,file);
 
+    stampa(buffer,file);
 
     fclose(file);
     return 0;
@@ -34,35 +35,19 @@ int main()
 
 void carica(Studente buffer[],FILE *file)
 {
-    while (feof(file))
-    {
         for (int i = 0; i < N; i++)
         {
-            fscanf("%s\n %s\n", buffer[i].cognome, buffer[i].nome);
+            scanf("%s %s", buffer[i].cognome, buffer[i].nome);
         }
-    }
-    
-    
 }
 
-/*void stampa(Studente buffer[],FILE *file)
+ void stampa(Studente buffer[],FILE *file)
 {
-    printf("I DATI SOMO\n");
-    for (int i = 0; i < N; i++)
-    {
-		    formattaCogn(buffer);
-		
-        printf("\n**************************************************************\n");
-        printf("Il nome e': \t\t%s\n", buffer[i].nome);
-        printf("Il cognome e': \t\t%s\n", buffer[i].cognome);
-        printf("Data di nascita: \t%d/%d/%d\n\n",
-               buffer[i].dataNascita.giorno,
-               buffer[i].dataNascita.mese,
-               buffer[i].dataNascita.anno);
+   fread(buffer, sizeof(Studente), N, file);  
 
-        for (int j = 0; j < N; j++)
-        {
-            printf("Il voto %d e': %d\n", j + 1, buffer[i].voti[j]);    //j+1 per iniziare con il voto 1 non con il voto 0.
-        }
+    printf("\nContenuto del file binario:\n");
+    for (int i = 0; i < N; i++) 
+    {
+        printf("Cognome: %s, Nome: %s\n", buffer[i].cognome, buffer[i].nome);
     }
-}
+} 

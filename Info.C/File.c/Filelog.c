@@ -4,13 +4,11 @@
 
 void writeLog(FILE *logFile, const char *message) 
 {
-    // Otteniamo il timestamp corrente
     time_t currentTime;
     struct tm *localTime;
     time(&currentTime);
     localTime = localtime(&currentTime);
 
-    // Scriviamo il messaggio di log nel formato desiderato
     fprintf(logFile, "[%04d-%02d-%02d %02d:%02d:%02d] %s\n",
             localTime->tm_year + 1900, localTime->tm_mon + 1, localTime->tm_mday,
             localTime->tm_hour, localTime->tm_min, localTime->tm_sec, message);
@@ -19,7 +17,6 @@ void writeLog(FILE *logFile, const char *message)
 
 int main(int argc, char *argv[]) 
 {
-    // Creazione del file di log in modalità append
     FILE *logFile = fopen("../File/log.txt", "a");
     if (logFile == NULL) 
     {
@@ -29,7 +26,6 @@ int main(int argc, char *argv[])
 
     writeLog(logFile, "BENVENUTO MOHAMED");
     writeLog(logFile, "Messaggio di log 1");
-    // Puoi chiamare writeLog() con altri messaggi
 
     fclose(logFile);  
     return 0;

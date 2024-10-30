@@ -1,6 +1,5 @@
 /*ELSHOURBGY MOHAMED 4H*/
 #include <stdio.h>
-#include <string.h>
 int main() 
 {
     FILE* file1 = fopen("../File/file.txt", "r");
