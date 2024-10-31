@@ -18,14 +18,15 @@ void stampa(Studente buffer[],FILE *file);
 
 int main()
 {
+
+    srand(time(NULL));
+
     int n;
     
     FILE* file = fopen("../File/Studenti.dat", "wb");
     Studente buffer[N];
 
     carica(buffer,file);
-
-    fwrite(&buffer,sizeof(Studente),1,file);
 
     stampa(buffer,file);
 
@@ -38,16 +39,21 @@ void carica(Studente buffer[],FILE *file)
         for (int i = 0; i < N; i++)
         {
             scanf("%s %s", buffer[i].cognome, buffer[i].nome);
+            fwrite(&buffer,sizeof(Studente),1,file);
         }
 }
 
  void stampa(Studente buffer[],FILE *file)
 {
+   int ca;
+   //int i=0;
    fread(buffer, sizeof(Studente), N, file);  
 
-    printf("\nContenuto del file binario:\n");
-    for (int i = 0; i < N; i++) 
-    {
-        printf("Cognome: %s, Nome: %s\n", buffer[i].cognome, buffer[i].nome);
+    printf("\nContenuto del file binario:\n");     
+    while((ca = fgetc(file)) != EOF)
+    {   
+        printf("%s", ca);
+        //printf("Cognome: %s, Nome: %s\n", buffer[i].cognome, buffer[i].nome);
+        //i++;
     }
 } 
