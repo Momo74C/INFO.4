@@ -3,20 +3,20 @@
 #include <stdlib.h> 
 #include <time.h>
 
-#define NUM_STUD 2
-#define DIM_COGN 30
+#define N 3
 #define NUM_VOTI 5
 
 struct Studente
 {
     char nome[30];
-    char cognome[DIM_COGN];
+    char cognome[30];
     int voti[NUM_VOTI];
 } typedef Studente;
 
-void carica(Studente buffer[],FILE *file);
-void stampa(Studente buffer[],FILE *file); 
-int riccognome(Studente buffer[], char x[]);
+void carica(FILE *file);
+void stampa(FILE *file); 
+int riccognome( FILE *file ,char x[]);
+void StampaInfo(FILE *fileptr);
 
 int main(int argc, char*argv[])
 {
@@ -24,66 +24,110 @@ int main(int argc, char*argv[])
     srand(time(NULL));
     char y[30];
     
-    FILE* file = fopen("../File/Studenti.dat", "wb");
-    Studente buffer[NUM_STUD];
+    FILE* file = fopen("../File/Studenti.txt", "wb");
+    Studente buffer;
 
-    carica(buffer,file);
+    carica(file);
+    fclose(file);
 
-    stampa(buffer,file);
+    file = fopen("../File/Studenti.txt", "rb");
+    stampa(file);
+    fclose(file);
 
+    file = fopen("../File/Studenti.txt", "rb");
     printf("Inserisci il cognome che vuoi cercare: \n");
     scanf("%s", y);  
 
-    int ris = riccognome(buffer, y);
-
-
-
+    int ris = riccognome(file,y);
+    printf("il numero di persone che hanno il cognome uguale a %s e' %d\n", y,ris);
     fclose(file);
+
+    file = fopen("../File/Studenti.txt", "rb");
+    StampaInfo(file);
+    fclose(file);
+    
     return 0;
 }
 
-void carica(Studente buffer[],FILE *file)
+void carica(FILE *file)
 {
-    for (int i = 0; i < NUM_STUD; i++) {
-        printf("Inserisci nome e cognome dello studente: ");
-        scanf("%s %s", buffer[i].nome, buffer[i].cognome);
-
-        // Genera casualmente i voti
-        for (int j = 0; j < NUM_VOTI; j++) {
-            buffer[i].voti[j] = rand() % 10 + 1;
-            printf("Voto %d: %d\n", j + 1, buffer[i].voti[j]);
-        }
-
-        // Scrive i dati dello studente nel file
-        fwrite(&buffer[i], sizeof(Studente), 1, file);
-    }
-}
-
- void stampa(Studente buffer[],FILE *file)
-{
-   int i=0;
-    while(!feof(file) && i<NUM_STUD)
+    Studente buffer;
+    
+    for (int i = 0; i < N; i++) 
     {
-        fread(buffer, sizeof(Studente),1, file);
-        printf("\n************************************************************\n");
-        printf(" Nome e cognome :     %s %s       \n", buffer[i].nome, buffer[i].cognome);
-        printf(" Voti dell'alunno:    ");
+        printf("Inserisci nome : ");
+        scanf("%s", buffer.nome);
+
+        printf("inserisci cognome : ");
+        scanf("%s", buffer.cognome);
+
         for (int j = 0; j < NUM_VOTI; j++) 
         {
-            printf("%d ", buffer[i].voti[j]);
+            buffer.voti[j] = rand() % 10 + 1;
+            printf("Voto %d: %d\n", j + 1, buffer.voti[j]);
         }
-        printf("\n************************************************************\n");
-        i++;
+
+        fwrite(&buffer, sizeof(Studente), 1, file);
     }
 }
 
-int riccognome(Studente buffer[], char x[])
+ void stampa(FILE *file)
 {
-    //sistemare buffer 
-    int cont = 0;
-    for (int i = 0; i < NUM_STUD; i++)
+    Studente buffer;
+
+    while (fread(&buffer, sizeof(Studente), 1, file) == 1)   
     {
-        if(strcmp(buffer[i].cognome, x) == 0)
+        printf("\n************************************************************\n");
+        printf("Nome : %s\n", buffer.nome);
+        printf("Cognome : %s\n", buffer.cognome);
+        printf("Voti dell'alunno: ");
+        for (int j = 0; j < NUM_VOTI; j++) 
+        {
+            printf("%d ", buffer.voti[j]);
+        }
+        printf("\n************************************************************\n");
     }
 }
+
+int riccognome(FILE *file,char x[])
+{
+    Studente buffer;
+    int cont = 0;
+    while (fread(&buffer, sizeof(Studente), 1, file) == 1)
+    {
+        if(strcmp(buffer.cognome, x) == 0)
+        {
+            cont++;
+        }
+    }
+    return cont;
+}
+
+void StampaInfo(FILE *file)
+{
+    Studente buffer;
+    
+    while (fread(&buffer, sizeof(Studente), 1, file) == 1) 
+    {
+        int max = 0, min = 10, somma = 0;
+        
+        for (int i = 0; i < NUM_VOTI; i++) 
+        {
+            somma += buffer.voti[i];
+            if (buffer.voti[i] > max) 
+            { 
+                max = buffer.voti[i]; 
+            }
+            if (buffer.voti[i] < min) 
+            { 
+                min = buffer.voti[i]; 
+            }
+        }
+        
+        int media = somma / NUM_VOTI;
+        printf("%s %s    ",buffer.nome, buffer.cognome);
+        printf("Media: %d / Voto più alto: %d / Voto più basso: %d\n",media, max, min);
+    }
+}
+
 
