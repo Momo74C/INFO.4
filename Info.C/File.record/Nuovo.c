@@ -4,7 +4,7 @@
 #include <stdlib.h> 
 #include <time.h>
 
-#define N 3
+#define N 1
 #define NUM_VOTI 5
 
 struct Studente
@@ -17,7 +17,8 @@ struct Studente
 void carica(FILE *file);
 void stampa(FILE *file); 
 int riccognome( FILE *file ,char x[]);
-void StampaInfo(FILE *fileptr);
+void StampaInfo(FILE *file);
+void Coregge(FILE *file);
 
 int main(int argc, char*argv[])
 {
@@ -25,17 +26,17 @@ int main(int argc, char*argv[])
     srand(time(NULL));
     char y[30];
     
-    FILE* file = fopen("../File/Studenti.txt", "wb");
+    FILE* file = fopen("../File/Studenti.dat", "wb");
     Studente buffer;
 
     carica(file);
     fclose(file);
 
-    file = fopen("../File/Studenti.txt", "rb");
+    file = fopen("../File/Studenti.dat", "rb");
     stampa(file);
     fclose(file);
 
-    file = fopen("../File/Studenti.txt", "rb");
+    file = fopen("../File/Studenti.dat", "rb");
     printf("Inserisci il cognome che vuoi cercare: \n");
     scanf("%s", y);  
 
@@ -43,10 +44,17 @@ int main(int argc, char*argv[])
     printf("il numero di persone che hanno il cognome uguale a %s e' %d\n", y,ris);
     fclose(file);
 
-    file = fopen("../File/Studenti.txt", "rb");
+    file = fopen("../File/Studenti.dat", "rb");
     StampaInfo(file);
     fclose(file);
+
+    file = fopen("../File/Studenti.dat", "rb");
+    Coregge(file);
+    fclose(file);
     
+    file = fopen("../File/Studenti.dat", "rb");
+    StampaInfo(file);
+    fclose(file);
     return 0;
 }
 
@@ -130,5 +138,26 @@ void StampaInfo(FILE *file)
         printf("Media: %d / Voto più alto: %d / Voto più basso: %d\n",media, max, min);
     }
 }
+
+void Coregge(FILE *file)
+{
+    fseek(file,0,SEEK_SET);
+    
+    Studente buffer;
+    
+    while (fread(&buffer, sizeof(Studente), 1, file) == 1)
+    {
+        for (int i = 0; i < NUM_VOTI; i++)
+        {
+            if(buffer.voti[i] < 4)
+            {
+                buffer.voti[i] = 4;
+            }
+            printf("Cognome : %s | voto : %d\n", buffer.cognome, buffer.voti[i]);
+        }
+        fwrite(&buffer, sizeof(Studente), 1, file);
+    }
+}
+
 
 
