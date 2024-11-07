@@ -4,7 +4,7 @@
 #include <stdlib.h> 
 #include <time.h>
 
-#define N 1
+#define N 3
 #define NUM_VOTI 5
 
 struct Studente
@@ -48,7 +48,7 @@ int main(int argc, char*argv[])
     StampaInfo(file);
     fclose(file);
 
-    file = fopen("../File/Studenti.dat", "rb");
+    file = fopen("../File/Studenti.dat", "rb+");
     Coregge(file);
     fclose(file);
     
@@ -155,6 +155,7 @@ void Coregge(FILE *file)
             }
             printf("Cognome : %s | voto : %d\n", buffer.cognome, buffer.voti[i]);
         }
+        fseek(file, -sizeof(Studente), SEEK_CUR);
         fwrite(&buffer, sizeof(Studente), 1, file);
     }
 }
