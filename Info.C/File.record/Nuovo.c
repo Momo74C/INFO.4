@@ -140,9 +140,7 @@ void StampaInfo(FILE *file)
 }
 
 void Coregge(FILE *file)
-{
-    fseek(file,0,SEEK_SET);
-    
+{    
     Studente buffer;
     
     while (fread(&buffer, sizeof(Studente), 1, file) == 1)
