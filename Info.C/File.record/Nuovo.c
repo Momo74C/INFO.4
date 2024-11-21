@@ -145,19 +145,21 @@ void Coregge(char filename[])
     
     while (fread(&buffer, sizeof(Studente), 1, file) == 1)
     {
+        int flag=0;
         for (int i = 0; i < NUM_VOTI; i++)
-        {
+        { 
             if(buffer.voti[i] < 4)
             {
                 buffer.voti[i] = 4;
+                flag=1;
+
             }
             printf("Cognome : %s | voto : %d\n", buffer.cognome, buffer.voti[i]);
         }
-        fseek(file, -sizeof(Studente), SEEK_CUR);
-        fwrite(&buffer, sizeof(Studente), 1, file);
+        if(flag==1)
+         {      fseek(file, -sizeof(Studente), SEEK_CUR);
+                fwrite(&buffer, sizeof(Studente), 1, file);
+        }
     }
     fclose(file);
 }
-
-
-
