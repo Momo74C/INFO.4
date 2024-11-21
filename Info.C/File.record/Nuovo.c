@@ -14,54 +14,45 @@ struct Studente
     int voti[NUM_VOTI];
 } typedef Studente;
 
-void carica(FILE *file);
-void stampa(FILE *file); 
-int riccognome( FILE *file ,char x[]);
-void StampaInfo(FILE *file);
-void Coregge(FILE *file);
+void carica(char filename[]);
+void stampa(char filename[]); 
+int riccognome( char filename[] ,char x[]);
+void StampaInfo(char filename[]);
+void Coregge(char filename[]);
 
 int main(int argc, char*argv[])
 {
-
+    Studente buffer;
     srand(time(NULL));
     char y[30];
-    
-    FILE* file = fopen("../File/Studenti.dat", "wb");
-    Studente buffer;
 
-    carica(file);
-    fclose(file);
+    char name[30];
+    printf("inserssci il nme del file\n");
+    scanf("%s",  name);
+      
+    carica(name);
 
-    file = fopen("../File/Studenti.dat", "rb");
-    stampa(file);
-    fclose(file);
+    stampa(name);
 
-    file = fopen("../File/Studenti.dat", "rb");
     printf("Inserisci il cognome che vuoi cercare: \n");
     scanf("%s", y);  
 
-    int ris = riccognome(file,y);
+    int ris = riccognome(name,y);
     printf("il numero di persone che hanno il cognome uguale a %s e' %d\n", y,ris);
-    fclose(file);
 
-    file = fopen("../File/Studenti.dat", "rb");
-    StampaInfo(file);
-    fclose(file);
+    StampaInfo(name);
 
-    file = fopen("../File/Studenti.dat", "rb+");
-    Coregge(file);
-    fclose(file);
+    Coregge(name);
     
-    file = fopen("../File/Studenti.dat", "rb");
-    StampaInfo(file);
-    fclose(file);
+    StampaInfo(name);
+
     return 0;
 }
 
-void carica(FILE *file)
+void carica(char filename[])
 {
     Studente buffer;
-    
+    FILE* file = fopen(filename, "wb");
     for (int i = 0; i < N; i++) 
     {
         printf("Inserisci nome : ");
@@ -78,11 +69,13 @@ void carica(FILE *file)
 
         fwrite(&buffer, sizeof(Studente), 1, file);
     }
+    fclose(file);
 }
 
- void stampa(FILE *file)
+ void stampa(char filename[])
 {
     Studente buffer;
+    FILE* file = fopen(filename, "rb");
 
     while (fread(&buffer, sizeof(Studente), 1, file) == 1)   
     {
@@ -96,11 +89,14 @@ void carica(FILE *file)
         }
         printf("\n************************************************************\n");
     }
+    fclose(file);
 }
 
-int riccognome(FILE *file,char x[])
+int riccognome(char filename[],char x[])
 {
     Studente buffer;
+    FILE* file = fopen(filename, "rb");
+
     int cont = 0;
     while (fread(&buffer, sizeof(Studente), 1, file) == 1)
     {
@@ -110,12 +106,14 @@ int riccognome(FILE *file,char x[])
         }
     }
     return cont;
+    fclose(file);
 }
 
-void StampaInfo(FILE *file)
+void StampaInfo(char filename[])
 {
     Studente buffer;
-    
+    FILE* file = fopen(filename, "rb");
+
     while (fread(&buffer, sizeof(Studente), 1, file) == 1) 
     {
         int max = 0, min = 10, somma = 0;
@@ -137,11 +135,13 @@ void StampaInfo(FILE *file)
         printf("%s %s    ",buffer.nome, buffer.cognome);
         printf("Media: %d / Voto più alto: %d / Voto più basso: %d\n",media, max, min);
     }
+    fclose(file);
 }
 
-void Coregge(FILE *file)
+void Coregge(char filename[])
 {    
     Studente buffer;
+    FILE* file = fopen(filename, "rb+");
     
     while (fread(&buffer, sizeof(Studente), 1, file) == 1)
     {
@@ -156,6 +156,7 @@ void Coregge(FILE *file)
         fseek(file, -sizeof(Studente), SEEK_CUR);
         fwrite(&buffer, sizeof(Studente), 1, file);
     }
+    fclose(file);
 }
 
 
