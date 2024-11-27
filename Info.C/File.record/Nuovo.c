@@ -51,24 +51,24 @@ int main(int argc, char*argv[])
 
 void carica(char filename[])
 {
-    Studente buffer;
+    Studente buffer[N];
     FILE* file = fopen(filename, "wb");
     for (int i = 0; i < N; i++) 
     {
         printf("Inserisci nome : ");
-        scanf("%s", buffer.nome);
+        scanf("%s", buffer[i].nome);
 
         printf("inserisci cognome : ");
-        scanf("%s", buffer.cognome);
+        scanf("%s", buffer[i].cognome);
 
         for (int j = 0; j < NUM_VOTI; j++) 
         {
-            buffer.voti[j] = rand() % 10 + 1;
-            printf("Voto %d: %d\n", j + 1, buffer.voti[j]);
+            buffer[i].voti[j] = rand() % 10 + 1;
+            printf("Voto %d: %d\n", j + 1, buffer[i].voti[j]);
         }
 
-        fwrite(&buffer, sizeof(Studente), 1, file);
-    }
+        //fwrite(&buffer, sizeof(Studente), N, file); questa va messa fuori dal ciclo se usi array di record
+   }
     fclose(file);
 }
 
@@ -157,8 +157,9 @@ void Coregge(char filename[])
             printf("Cognome : %s | voto : %d\n", buffer.cognome, buffer.voti[i]);
         }
         if(flag==1)
-         {      fseek(file, -sizeof(Studente), SEEK_CUR);
-                fwrite(&buffer, sizeof(Studente), 1, file);
+        {      
+            fseek(file, -sizeof(Studente), SEEK_CUR);
+            fwrite(&buffer, sizeof(Studente), 1, file);
         }
     }
     fclose(file);
