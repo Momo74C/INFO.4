@@ -1,22 +1,67 @@
-class LED {
+//ELSHOURBGY MOHAMED 4H 
+
+class LED 
+{
   private:
-    int pin; // Pin del LED
+    int pin;      
+    int stato;   
 
   public:
-    // Costruttore: imposta la modalità del pin del LED come output
-    LED(int p) {
+    
+    LED(int p) 
+    {
       pin = p;
+      stato = 0; // Inizialmente spento
       pinMode(pin, OUTPUT);
     }
 
-    // Metodo per accendere il LED
-    void accendi() {
+    void accendi() 
+    {
       digitalWrite(pin, HIGH);
+      stato = 1;
     }
 
-    // Metodo per spegnere il LED
-    void spegni() {
+    void spegni() 
+    {
       digitalWrite(pin, LOW);
+      stato = 0;
+    }
+
+    void inverti() 
+    {
+      if (stato == 1) 
+      {
+        spegni();
+      } 
+      else 
+      {
+        accendi();
+      }
+    }
+
+    void lampeggio(int nrLampeggi) 
+    {
+      for (int i = 0; i < nrLampeggi; i++) 
+      {
+        accendi();
+        delay(500); 
+        spegni();
+        delay(500); 
+      }
+    }
+
+    // Metodo per testare le funzionalità della classe LED
+    void test(int numeroTest) 
+    {
+      for (int i = 0; i < numeroTest; i++) 
+      {
+        lampeggio(3); // Tre lampeggi per test
+        delay(3000);
+        accendi();
+        delay(3000);
+        inverti();
+        delay(3000);
+      }
     }
 };
 
@@ -24,12 +69,12 @@ class LED {
 LED led(11);
 
 void setup() {
-  // Non c'è nulla da fare qui
+
 }
 
-void loop() {
-  led.accendi();  // Accendi il LED
-  delay(1000);    // Aspetta per un secondo
-  led.spegni();   // Spegni il LED
-  delay(1000);    // Aspetta per un secondo
+void loop() 
+{
+  led.test(1);  // Esegue il test del LED 1 volte
+  delay(5000);  
 }
+
