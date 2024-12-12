@@ -1,7 +1,4 @@
 // ELSHOURBGY MOHAMED 4H
-#define LED_GREEN 12
-#define LED_BLU 13
-#define SW_PIN 2
 
 class LED 
 {
@@ -44,9 +41,9 @@ class Pulsante
     }
 };
 
-LED ledGreen(LED_GREEN);
-LED ledBlue(LED_BLU);
-Pulsante pulsante(SW_PIN);
+LED ledGreen(12);
+LED ledBlue(13);
+Pulsante pulsante(2);
 
 void setup() {
 
