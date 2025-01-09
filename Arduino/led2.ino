@@ -35,7 +35,7 @@ class Pulsante
       pinMode(pin, INPUT_PULLUP);
     }
 
-    bool press()  // restituisce true e false se è high allora il pulsante non è premuto invece se è low è premuto
+    bool press()  
     {
       return digitalRead(pin) == LOW;
     }
