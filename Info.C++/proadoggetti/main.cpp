@@ -16,7 +16,6 @@ int main() {
 
     cout << "[VALORI DEL PRIMO RETTANGOLO]" << endl;
     cout << "-------------------------------------" << endl;
-    r1.~Rettangolo();
     r1.stampa();
 
     return 0;
