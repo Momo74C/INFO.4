@@ -18,7 +18,7 @@ class Rettangolo {
     }
 
     ~Rettangolo() {
-        cout << "Distruggendo il metodo Perimetro " << endl;
+        cout << "Distruttore chiamato " << endl;
     }
 
     double Perimetro() {
