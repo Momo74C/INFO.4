@@ -3,10 +3,9 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     double base, altezza;
-    
+
     cout << "Inserisci il valore dell'altezza" << endl;
     cin >> altezza;
 
@@ -19,5 +18,6 @@ int main()
     cout << "-------------------------------------" << endl;
     r1.~Rettangolo();
     r1.stampa();
-}
 
+    return 0;
+}
