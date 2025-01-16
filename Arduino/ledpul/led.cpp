@@ -1,5 +1,7 @@
 #include "led.h"
 
+using namespace std;
+
 LED::LED(int pin)
 {
     this->pin = pin;
