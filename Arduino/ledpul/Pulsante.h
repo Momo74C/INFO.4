@@ -5,11 +5,13 @@ class Pulsante
 {
   private:
     int pin;
+    int tempoPremuto;
 
   public:
     Pulsante(int pin); 
 
-    bool press();  
+    bool press();
+    bool longPress();  
     
 };
 
