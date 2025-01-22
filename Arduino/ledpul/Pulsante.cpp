@@ -1,4 +1,5 @@
 #include "Pulsante.h"
+#include <Arduino.h>
 
 using namespace std;
 
