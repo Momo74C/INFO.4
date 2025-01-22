@@ -12,7 +12,14 @@ class LED
     void accendi(); 
 
     void spegni(); 
-    
+
+    void lampeggio(int numero, int durata);
+
+    void accendi(int durata);
+
+    void spegni(int ritardo);
 };
+
+void test();
 
 #endif
