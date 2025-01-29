@@ -4,9 +4,11 @@
 
 using namespace std;
 
-Rettangolo::Rettangolo(double base, double altezza):Equilatero(base,altezza,base,altezza);
+Rettangolo::Rettangolo(int base,int altezza):Equilatero(base,altezza,base,altezza){
+
+}
 
 void Rettangolo::stampa() {
-    cout << "Il valore della base e': " << base << endl;
-    cout << "Il valore dell'altezza e': " << altezza << endl;
+    cout << "Il valore della base e': " << l1 << endl;
+    cout << "Il valore dell'altezza e': " << l2 << endl;
 }
