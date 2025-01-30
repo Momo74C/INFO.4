@@ -1,19 +1,30 @@
 #include "Rettangolo.h"
-#include "Equilatero.h"
+#include "Quadrilatero.h"
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
-Rettangolo::Rettangolo(int base,int altezza):Equilatero(base,altezza,base,altezza){
+Rettangolo::Rettangolo(double base,double altezza):Quadrilatero(base,altezza,base,altezza){
 
 }
 
-int Rettangolo::Perimetro() {
+double Rettangolo::Perimetro() {
     return (l1 + l2) * 2;
+}
+
+double Rettangolo::Area() {
+    return l1 * l2;
+}
+
+double Rettangolo::Diagonale() {
+    return sqrt(l3 * l3 + l4 * l4);
 }
 
 void Rettangolo::stampa() {
     cout << "Il valore della base e': " << l1 << endl;
     cout << "Il valore dell'altezza e': " << l2 << endl;
     cout << "Il valore del perimetro e': " << Perimetro() << endl;
+    cout << "Il valore dell'area e': " << Area() << endl;
+    cout << "Il valore della diagonale e': " << Diagonale() << endl;
 }

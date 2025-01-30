@@ -1,15 +1,17 @@
 #ifndef RETTANGOLO_H 
 #define RETTANGOLO_H
-#include "Equilatero.h"
+#include "Quadrilatero.h"
 
-class Rettangolo : public Equilatero {
+class Rettangolo : public Quadrilatero {
     
     private:
 
     public:
 
-    Rettangolo(int base,int altezza);
-    int Perimetro();
+    Rettangolo(double base,double altezza);
+    double Perimetro();
+    double Area();
+    double Diagonale();
     void stampa();
 };
 
