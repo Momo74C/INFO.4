@@ -8,7 +8,12 @@ Rettangolo::Rettangolo(int base,int altezza):Equilatero(base,altezza,base,altezz
 
 }
 
+int Rettangolo::Perimetro() {
+    return (base + altezza) * 2;
+}
+
 void Rettangolo::stampa() {
     cout << "Il valore della base e': " << l1 << endl;
     cout << "Il valore dell'altezza e': " << l2 << endl;
+    cout << "Il valore del perimetro e': " << Perimetro() << endl;
 }

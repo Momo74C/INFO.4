@@ -9,7 +9,7 @@ class Rettangolo : public Equilatero {
     public:
 
     Rettangolo(int base,int altezza);
-        
+    int Perimetro();
     void stampa();
 };
 

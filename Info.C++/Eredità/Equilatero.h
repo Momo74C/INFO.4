@@ -10,6 +10,8 @@ class Equilatero {
     public:
 
     Equilatero(int l1,int l2,int l3,int l4);
+    int Perimetro();
+    void stampa();
 };
 
 #endif
