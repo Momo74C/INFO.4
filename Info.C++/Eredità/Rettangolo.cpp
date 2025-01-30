@@ -9,7 +9,7 @@ Rettangolo::Rettangolo(int base,int altezza):Equilatero(base,altezza,base,altezz
 }
 
 int Rettangolo::Perimetro() {
-    return (base + altezza) * 2;
+    return (l1 + l2) * 2;
 }
 
 void Rettangolo::stampa() {

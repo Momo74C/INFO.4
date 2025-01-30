@@ -1,4 +1,6 @@
 #include "Equilatero.h"
+#include <iostream>
+
 using namespace std;
 
 Equilatero::Equilatero(int l1,int l2,int l3,int l4)
