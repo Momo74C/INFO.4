@@ -1,11 +1,11 @@
 #include "Quadrato.h"
-#include "Quadrilatero.h"
+#include "Rettangolo.h"
 #include <iostream>
 #include <cmath>
 
 using namespace std;
 
-Quadrato::Quadrato(double lato):Quadrilatero(lato,lato,lato,lato){
+Quadrato::Quadrato(double lato):Rettangolo(lato,lato){
 
 }
 

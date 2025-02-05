@@ -11,7 +11,7 @@ int main() {
     Rettangolo R1(5,7);
     Quadrato U1(7);
 
-    cout << "[VALORI DEL QUADRILATERO]" << endl;
+    cout << "\n[VALORI DEL QUADRILATERO]" << endl;
     cout << "-------------------------------------" << endl;
     E1.stampa();
 
@@ -23,6 +23,8 @@ int main() {
     cout << "\n[VALORI DEL QUADRATO]" << endl;
     cout << "-------------------------------------" << endl;
     U1.stampa();
+
+    cout << endl;
 
     return 0;
 }

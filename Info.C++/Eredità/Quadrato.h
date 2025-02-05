@@ -1,8 +1,8 @@
 #ifndef QUADRATO_H
 #define QUADRATO_H
-#include "Quadrilatero.h"
+#include "Rettangolo.h"
 
-class Quadrato : public Quadrilatero {
+class Quadrato : public Rettangolo {
     private:
 
     public:
