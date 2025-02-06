@@ -10,8 +10,7 @@ class Rombo : public Quadrilatero {
 
     Rombo(double base,double altezza);
     double Perimetro();
-    double Area();
-    double Diagonale();
+    //double Area();
     void stampa();
 };
 

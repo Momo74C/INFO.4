@@ -15,6 +15,10 @@ int main() {
     cout << "-------------------------------------" << endl;
     E1.stampa();
 
+    E1.setlato(12);
+    double r = E1.getlato();
+    cout << "\n il primo lato e'" << r << endl; 
+
 
     cout << "\n[VALORI DEL RETTANGOLO]" << endl;
     cout << "-------------------------------------" << endl;

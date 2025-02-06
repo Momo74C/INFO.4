@@ -17,9 +17,16 @@ double Quadrilatero::Perimetro()
     return l1 + l2 + l3 + l4;
 }
 
-double Quadrilatero::Area() {
-    double s = (l1 + l2 + l3 + l4) / 2;
-    return sqrt((s - l1) * (s - l2) * (s - l3) * (s - l4));
+//Ho provato i metodi get e set con solo il primo lato.
+ 
+void Quadrilatero::setlato(double l1)
+{
+    this->l1 = l1;
+}
+
+double Quadrilatero::getlato()
+{
+    return l1;
 }
 
 void Quadrilatero::stampa() {
@@ -28,5 +35,5 @@ void Quadrilatero::stampa() {
     cout << "Terzo lato: " << l3 << endl;
     cout << "Quattro lato: " << l4 << endl;
     cout << "Il valore del perimetro e': " << Perimetro() << endl;
-    cout << "Il valore dell'area e': " << Area() << endl;
+    //cout << "Il valore dell'area e': " << Area() << endl;
 }

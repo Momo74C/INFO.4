@@ -21,6 +21,7 @@ double Rettangolo::Diagonale() {
     return sqrt(l3 * l3 + l4 * l4);
 }
 
+
 void Rettangolo::stampa() {
     cout << "Il valore della base e': " << l1 << endl;
     cout << "Il valore dell'altezza e': " << l2 << endl;

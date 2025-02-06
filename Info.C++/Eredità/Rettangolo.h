@@ -5,6 +5,7 @@
 class Rettangolo : public Quadrilatero {
     
     private:
+    colore;
 
     public:
 
@@ -12,6 +13,8 @@ class Rettangolo : public Quadrilatero {
     double Perimetro();
     double Area();
     double Diagonale();
+    double getcolore();
+    void setcolore(double colore1);
     void stampa();
 };
 
