@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Quadrato::Quadrato(double lato):Rettangolo(lato,lato){
+Quadrato::Quadrato(double lato):Rettangolo(lato,lato,lato){
 
 }
 

@@ -5,8 +5,8 @@
 
 using namespace std;
 
-Rettangolo::Rettangolo(double base,double altezza):Quadrilatero(base,altezza,base,altezza){
-
+Rettangolo::Rettangolo(double base,double altezza,double colore):Quadrilatero(base,altezza,base,altezza){
+    this->colore = colore;
 }
 
 double Rettangolo::Perimetro() {
@@ -21,6 +21,10 @@ double Rettangolo::Diagonale() {
     return sqrt(l3 * l3 + l4 * l4);
 }
 
+void Rettangolo::metodo()
+{
+    Quadrilatero::metodo();
+}
 
 void Rettangolo::stampa() {
     cout << "Il valore della base e': " << l1 << endl;

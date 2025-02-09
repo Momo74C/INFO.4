@@ -9,10 +9,12 @@ class Quadrilatero {
 
     public:
 
-    Quadrilatero(double l1,double l2,double l3,double l4);
+    Quadrilatero(double l1=5,double l2=12,double l3=3,double l4=21);
+    ~Quadrilatero(); 
     double Perimetro();
     double getlato();
     void setlato(double l1 = 24);
+    void metodo();
     void stampa();
 };
 

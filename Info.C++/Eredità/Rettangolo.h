@@ -5,16 +5,17 @@
 class Rettangolo : public Quadrilatero {
     
     private:
-    colore;
+    double colore;
 
     public:
 
-    Rettangolo(double base,double altezza);
+    Rettangolo(double base = 7,double altezza = 17,double colore =0);
     double Perimetro();
     double Area();
     double Diagonale();
     double getcolore();
     void setcolore(double colore1);
+    void metodo();
     void stampa();
 };
 

@@ -1,6 +1,7 @@
 #ifndef ROMBO_H
 #define ROMBO_H
 #include "Rombo.h"
+#include "Quadrilatero.h"
 
 class Rombo : public Quadrilatero {
     
@@ -8,9 +9,8 @@ class Rombo : public Quadrilatero {
 
     public:
 
-    Rombo(double base,double altezza);
+    Rombo(double lato);
     double Perimetro();
-    //double Area();
     void stampa();
 };
 
