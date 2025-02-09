@@ -29,9 +29,13 @@ void Quadrilatero::setlato(double l1)
     this->l1 = l1;
 }
 
-double Quadrilatero::getlato()
+double Quadrilatero::getlato(int index)
 {
-    return l1;
+    if (index == 1) return l1;
+    if (index == 2) return l2;
+    if (index == 3) return l3;
+    if (index == 4) return l4;
+    return -1;
 }
 
 void Quadrilatero::metodo()

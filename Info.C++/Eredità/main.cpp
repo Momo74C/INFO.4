@@ -18,13 +18,14 @@ int main() {
     Q1.stampa();
 
     Q1.setlato(12);
-    double r = Q1.getlato();
+    double r = Q1.getlato(1);
     cout << "\n il primo lato e'" << r << endl;
 
     Quadrilatero Q2(9,3,6,5); 
     cout << "\n[VALORI DEL QUADRILATERO SECONDO OGGETTO]" << endl;
     cout << "-------------------------------------" << endl;
     Q2.stampa();
+
 
     cout << "\n[VALORI DEL RETTANGOLO]" << endl;
     cout << "-------------------------------------" << endl;
