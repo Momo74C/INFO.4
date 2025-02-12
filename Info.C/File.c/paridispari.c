@@ -2,7 +2,8 @@
 #include <stdio.h>
 int main() 
 {
-    FILE* file1 = fopen("../File/numeri.txt", "r");
+    FILE* 
+     = fopen("../File/numeri.txt", "r");
     FILE* file2 = fopen("../File/pari.txt", "w");
     FILE* file3 = fopen("../File/dispari.txt", "w");
 
