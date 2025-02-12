@@ -9,7 +9,7 @@ int main ()
 {
     int vet[N];
     int *a;
-    a=vet;
+    a = vet;
 
     Carica(vet,a);
     Stampa(vet,a);
