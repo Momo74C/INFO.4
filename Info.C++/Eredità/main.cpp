@@ -30,7 +30,8 @@ int main() {
     cout << "\n[VALORI DEL RETTANGOLO]" << endl;
     cout << "-------------------------------------" << endl;
     R1.stampa();
-    R1.metodo();
+    //R1.metodo();
+    R1.Quadrilatero::metodo(); 
 
     cout << "\n[VALORI DEL RETTANGOLO SECONDO OGGETTO]" << endl;
     cout << "-------------------------------------" << endl;
