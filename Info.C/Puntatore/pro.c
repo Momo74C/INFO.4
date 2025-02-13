@@ -7,6 +7,7 @@ void Carica(int v[]);
 void Stampa(int v[]);
 int *Max(int v[]);
 int *Min(int v[]);
+int *Som(int v[]);
 
 int main ()
 {
@@ -81,3 +82,12 @@ int *Min(int v[])
     return p_min;
 }
 
+int *Som(int v[])
+{
+    int *p;
+    int *som = 0
+
+    for(p=v; p-v<N; p++)
+    
+
+}
