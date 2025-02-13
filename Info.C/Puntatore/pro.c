@@ -16,11 +16,11 @@ int main ()
     Carica(vet);
     Stampa(vet);
 
-    int *r = Max(vet);
-    printf("L'indirizzo %d, indice %ld, valore %d\n", r, r-vet,*r);
+    int *rMax = Max(vet);
+    printf("L'indirizzo %d, indice %ld, valore %d\n", rMax, rMax-vet,*rMax);
 
-    *r = Min(vet);
-    printf("L'indirizzo %d, indice %ld, valore %d\n", r, r-vet,*r);
+    int *rMin = Min(vet);
+    printf("L'indirizzo %d, indice %ld, valore %d\n", rMin, rMin-vet,*rMin);
     
 }
 
