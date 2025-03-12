@@ -1,9 +1,9 @@
-#ifndef NODE_H
-#define NODE_H
+#ifndef LISTA_H
+#define LISTA_H
 
-struct Node {
-    int data;
-    Node* next;
+struct Nodo {
+    int info;
+    Nodo* next;
 };
 
-#endif // NODE_H
+#endif 
