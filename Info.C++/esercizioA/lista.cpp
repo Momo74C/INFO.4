@@ -88,3 +88,38 @@ void Lista::stampa()
     }
     cout << "NULL" << endl;
 }
+
+int Lista::contaNodi() 
+{
+    Nodo* temp = testa;
+    int cont = 0;
+
+    while (temp != nullptr) 
+    {
+        cont++; 
+        temp = temp->prossimo; 
+    }
+
+    return cont;
+}
+
+void Lista::rimuoviDuplicati() 
+{
+    Nodo* corrente = testa;
+
+    while (corrente != nullptr) 
+    {
+        Nodo* temp = corrente;
+        while (temp->prossimo != nullptr) 
+        {
+            if (temp->prossimo->dato == corrente->dato) 
+            {
+                Nodo* nodoDaEliminare = temp->prossimo;
+                temp->prossimo = nodoDaEliminare->prossimo;
+                delete nodoDaEliminare;
+            } 
+            
+        }
+        
+    }
+}

@@ -13,12 +13,13 @@ class Lista
 
     public:
     Lista();
-
     void inserisciInTesta(int valore);
     void inserisciInCoda(int valore);
     void cancella(int valore);
     bool cerca(int valore);
     void stampa();
+    int contaNodi();
+    void rimuoviDuplicati();
 };
 
 #endif

@@ -13,11 +13,12 @@ int main() {
     lista.inserisciInCoda(9);
 
     lista.stampa();
-
-    lista.cancella(7);
+    cout << "\n";
+    lista.cancella(5);
     lista.stampa();
+    cout << "\n";
 
-    if(lista.cerca(7)) 
+    if(lista.cerca(9)) 
     {
         cout << "Elemento trovato nella lista." << endl;
     } 
@@ -25,6 +26,10 @@ int main() {
     {
         cout << "Elemento non trovato." << endl;
     }
+    
+    cout << "\n";
+    int r = lista.contaNodi();
+    cout << "il numero di nodi presente nella lista e' " << r << "\n";
 
     return 0;
 }
