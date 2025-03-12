@@ -9,7 +9,7 @@ struct Nodo {
 class Pila 
 {
     private: 
-    s* pnodo;
+    Nodo *pnodo;
 
     public:
     Pila();
