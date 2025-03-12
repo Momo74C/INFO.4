@@ -21,11 +21,11 @@ int main() {
 
     if(lista.cerca(9)) 
     {
-        cout << "Elemento trovato nella lista." << endl;
+        cout << "Elemento trovato nella lista." << "\n";
     } 
     else 
     {
-        cout << "Elemento non trovato." << endl;
+        cout << "Elemento non trovato." << "\n";
     }
     
     cout << "\n";

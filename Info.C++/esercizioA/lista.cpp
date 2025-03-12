@@ -113,7 +113,7 @@ void Lista::stampa()
         cout << temp->dato << "\n";
         temp = temp->prossimo;
     }
-    cout << "NULL" << endl; // Indichiamo la fine della lista
+    cout << "NULL" << "\n"; // Indichiamo la fine della lista
 }
 
 /**
