@@ -4,7 +4,7 @@
 
 struct Nodo {
     int dato;
-    Nodo* prossimo;
+    Nodo* next;
 };
 
 class Lista 

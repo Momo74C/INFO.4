@@ -19,7 +19,7 @@ void Lista::inserisciInTesta(int valore)
 {
     Nodo* nuovoNodo = new Nodo;
     nuovoNodo->dato = valore;
-    nuovoNodo->prossimo = testa; 
+    nuovoNodo->next = testa; 
     testa = nuovoNodo; 
 }
 
@@ -31,7 +31,7 @@ void Lista::inserisciInCoda(int valore)
 {
     Nodo* nuovoNodo = new Nodo;
     nuovoNodo->dato = valore;
-    nuovoNodo->prossimo = nullptr; 
+    nuovoNodo->next = nullptr; 
 
     if (testa == nullptr) 
     {
@@ -39,12 +39,12 @@ void Lista::inserisciInCoda(int valore)
         return;
     }
     
-    Nodo* temp = testa;
-    while (temp->prossimo != nullptr) 
+    Nodo* p = testa;
+    while (p->next != nullptr) 
     {
-        temp = temp->prossimo;
+        p = p->next;
     }
-    temp->prossimo = nuovoNodo; // Colleghiamo il nuovo nodo alla fine
+    p->next = nuovoNodo; // Colleghiamo il nuovo nodo alla fine
 }
 
 /**
@@ -60,26 +60,26 @@ void Lista::cancella(int valore)
 
     if(testa->dato == valore) 
     {
-        Nodo* temp = testa;
-        testa = testa->prossimo; 
-        delete temp; 
+        Nodo* p = testa;
+        testa = testa->next; 
+        delete p; 
         return;
     }
 
     
-    Nodo* temp = testa;
-    while (temp->prossimo != nullptr && temp->prossimo->dato != valore) 
+    Nodo* p = testa;
+    while (p->next != nullptr && p->next->dato != valore) 
     {
-        temp = temp->prossimo;
+        p = p->next;
     }
 
-    if (temp->prossimo == nullptr) // Se il valore non è stato trovato
+    if (p->next == nullptr) // Se il valore non è stato trovato
     {
         return;
     }
 
-    Nodo* nodoDaEliminare = temp->prossimo;
-    temp->prossimo = nodoDaEliminare->prossimo; // Saltiamo il nodo eliminato
+    Nodo* nodoDaEliminare = p->next;
+    p->next = nodoDaEliminare->next; // Saltiamo il nodo eliminato
     delete nodoDaEliminare;
 }
 
@@ -90,14 +90,14 @@ void Lista::cancella(int valore)
  */
 bool Lista::cerca(int valore) 
 {
-    Nodo* temp = testa;
-    while (temp != nullptr) 
+    Nodo* p = testa;
+    while (p != nullptr) 
     {
-        if (temp->dato == valore) // Se troviamo il valore, restituiamo true
+        if (p->dato == valore) // Se troviamo il valore, restituiamo true
         {
             return true;
         }
-        temp = temp->prossimo; 
+        p = p->next; 
     }
     return false; // Il valore non è stato trovato
 }
@@ -107,11 +107,11 @@ bool Lista::cerca(int valore)
  */
 void Lista::stampa() 
 {
-    Nodo* temp = testa;
-    while (temp != nullptr) 
+    Nodo* p = testa;
+    while (p != nullptr) 
     {
-        cout << temp->dato << "\n";
-        temp = temp->prossimo;
+        cout << p->dato << "\n";
+        p = p->next;
     }
     cout << "NULL" << "\n"; // Indichiamo la fine della lista
 }
@@ -122,13 +122,13 @@ void Lista::stampa()
  */
 int Lista::contaNodi() 
 {
-    Nodo* temp = testa;
+    Nodo* p = testa;
     int cont = 0;
 
-    while (temp != nullptr) 
+    while (p != nullptr) 
     {
         cont++; 
-        temp = temp->prossimo; 
+        p = p->next; 
     }
 
     return cont;
@@ -143,21 +143,21 @@ void Lista::rimuoviDuplicati()
 
     while (corrente != nullptr) 
     {
-        Nodo* temp = corrente;
-        while (temp->prossimo != nullptr) 
+        Nodo* p = corrente;
+        while (p->next != nullptr) 
         {
-            if (temp->prossimo->dato == corrente->dato) 
+            if (p->next->dato == corrente->dato) 
             {
                 
-                Nodo* nodoDaEliminare = temp->prossimo;
-                temp->prossimo = nodoDaEliminare->prossimo;
+                Nodo* nodoDaEliminare = p->next;
+                p->next = nodoDaEliminare->next;
                 delete nodoDaEliminare;
             } 
             else 
             {
-                temp = temp->prossimo; 
+                p = p->next; 
             }
         }
-        corrente = corrente->prossimo;
+        corrente = corrente->next;
     }
 }
