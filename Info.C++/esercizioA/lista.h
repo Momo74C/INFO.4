@@ -21,6 +21,7 @@ class Lista
     void stampa();
     int contaNodi();
     void rimuoviDuplicati();
+    void cancellaultimo();
 };
 
 #endif

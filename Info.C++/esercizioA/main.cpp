@@ -32,5 +32,8 @@ int main() {
     int r = lista.contaNodi();
     cout << "il numero di nodi presente nella lista e' " << r << "\n";
 
+    lista.cancellaultimo();
+    lista.stampa();
+
     return 0;
 }

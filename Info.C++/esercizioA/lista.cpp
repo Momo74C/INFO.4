@@ -58,12 +58,12 @@ void Lista::cancella(int valore)
         return;
     }
     
-    if(testa->info == valore) 
+    if(testa->dato == valore) 
     {
         Nodo* p = testa;
         testa = testa->next; 
         delete p; 
-        return  0;
+        return;
     }
 
     Nodo* p = testa;
@@ -159,4 +159,18 @@ void Lista::rimuoviDuplicati()
         }
         corrente = corrente->next;
     }
+}
+
+void Lista::cancellaultimo()
+{
+    Nodo* p = testa;
+    Nodo* s = testa->next;
+
+    while(s->next != nullptr)
+    {
+        s = s->next;
+        p = p->next;
+        
+    }
+    p->next=nullptr;
 }
