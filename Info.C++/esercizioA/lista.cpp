@@ -58,6 +58,14 @@ void Lista::cancella(int valore)
         return;
     }
     
+    if(testa->info == valore) 
+    {
+        Nodo* p = testa;
+        testa = testa->next; 
+        delete p; 
+        return  0;
+    }
+
     Nodo* p = testa;
     while (p->next != nullptr && p->next->dato != valore) 
     {
