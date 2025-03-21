@@ -40,6 +40,5 @@ int main()
     lista.rimuoviDuplicati();
     lista.stampa();
 
-
     return 0;
 }
