@@ -164,6 +164,12 @@ void Lista::rimuoviDuplicati()
 void Lista::cancellaultimo()
 {
     Nodo* p = testa;
+
+    if(p->next == nullptr)
+    {
+        delete p;
+        cout << "la lista è vuota \n ";
+    }
     Nodo* s = testa->next;
 
     while(s->next != nullptr)

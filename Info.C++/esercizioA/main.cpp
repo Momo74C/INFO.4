@@ -3,11 +3,12 @@
 #include <iostream>
 using namespace std;
 
-int main() {
+int main() 
+{
     Lista lista;
 
     lista.inserisciInTesta(7);
-    lista.inserisciInTesta(6);
+    lista.inserisciInTesta(7);
     lista.inserisciInTesta(5);
 
     lista.inserisciInCoda(8);
@@ -34,6 +35,11 @@ int main() {
 
     lista.cancellaultimo();
     lista.stampa();
+
+    cout << "\n";
+    lista.rimuoviDuplicati();
+    lista.stampa();
+
 
     return 0;
 }
