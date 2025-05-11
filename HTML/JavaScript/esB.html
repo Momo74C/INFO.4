@@ -1,0 +1,57 @@
+//ELSHOURBGY MOHAMED 4H
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Calcolatrice</h1>
+        <script>
+            let num1 = prompt("Inserisci il primo numero:");
+            let num2 = prompt("Inserisci il secondo numero:");
+            let operazione = prompt("Inserisci l'operazione (+, -, *, /, **):");
+
+            if (Number.isNaN(num1) || Number.isNaN(num2)) 
+            {
+                console.log("Errore: uno o entrambi i numeri non sono validi.");
+            } 
+            else 
+            {
+    
+                let risultato;
+                switch (operazione) 
+                {
+                    case "+":
+                        risultato = num1 + num2;
+                        break;
+                    case "-":
+                        risultato = num1 - num2;
+                        break;
+                    case "*":
+                        risultato = num1 * num2;
+                        break;
+                    case "/":
+                        if (num2 != 0) 
+                        {  
+                            risultato = num1 / num2;
+                        } 
+                        else 
+                        {
+                            console.log("Errore: divisione per zero.");
+                            break;
+                        }
+                        break;
+                    case "**":
+                        risultato = num1 ** num2;
+                        break;
+                    default:
+                        console.log("Errore: operazione non valida.");
+                        break;
+                }
+
+                if (risultato != null) 
+                {
+                    console.log("Il risultato è: " + risultato);
+                }
+
+            }
+        </script>
+    </body>
+</html>
