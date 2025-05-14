@@ -8,7 +8,7 @@ int main()
     Lista lista;
 
     lista.inserisciInTesta(7);
-    lista.inserisciInTesta(7);
+    lista.inserisciInTesta(17);
     lista.inserisciInTesta(5);
 
     lista.inserisciInCoda(8);
