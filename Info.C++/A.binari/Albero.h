@@ -9,14 +9,13 @@ struct Node {
 
 class BinaryTree {
 private:
-    Node* root; 
+    Node* testa; 
 
 public:
     BinaryTree();
-    //~BinaryTree();
     void insert(int value);
     void print();
-    Node* search(int value);
+    Node* ricerca(int value);
 };
 
 #endif

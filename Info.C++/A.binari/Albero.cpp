@@ -4,75 +4,65 @@ using namespace std;
 
 BinaryTree::BinaryTree()
  {
-    root = nullptr;
+    testa = nullptr;
 }
-
-/*BinaryTree::~BinaryTree() 
-{
-    delete root;
-}
-*/
 void BinaryTree::insert(int value) 
 {
-    if (root!=nullptr) 
+    if (testa==nullptr) 
     {
-        root = new Node{value, nullptr, nullptr};
+        testa = new Node;
+        testa->data = value;
+        testa->left=nullptr;
+        testa->right=nullptr;
         return;
     }
 
-    Node* current = root;
+    Node* corrente = testa;
     while (true) 
     {
-        if (value < current->data) 
+        if (value < corrente->data) 
         {
-            if (current->left!=nullptr) 
+            if(corrente->left!=nullptr) 
             {
-                current->left = new Node{value, nullptr, nullptr};
+                corrente->left = new Node{value, nullptr, nullptr};
+                corrente->left=value;
+                corrente->right=nullptr;
                 return;
             }
-            current = current->left;
+            corrente = corrente->left;
         } 
         else 
         {
-            if (current->right!=nullptr) 
+            if(corrente->right!=nullptr) 
             {
-                current->right = new Node{value, nullptr, nullptr};
+                corrente->right = new Node{value, nullptr, nullptr};
                 return;
             }
-            current = current->right;
+            corrente = corrente->right;
         }
     }
 }
 void BinaryTree::print() {
-    Node* current = root;
-    if (!current) {
+    Node* corrente = testa;
+    if (corrente!=nullptr) 
+    {
         cout << "L'albero è vuoto." << endl;
         return;
     }
-
-    printtt(root); 
-    cout << endl;
+     cout << corrente->left;
+     cout << corrente->data << " ";
+     cout << corrente->right;
 }
-
-void BinaryTree::printtt(Node* node) {
-    if (node!=nullptr) 
-    {
-        print(node->left);
-        cout << node->data << " ";
-        print(node->right);
-    }
-}
-
-Node* BinaryTree::search(int value) 
+Node* BinaryTree::ricerca(int value) 
 {
-    Node* current = root;
-    while (current) 
+    Node* corrente = testa;
+    while (corrente) 
     {
-        if (current->data == value) 
+        if (corrente->data == value) 
         {
-            return current;
+            return corrente;
         }
-        current = (value < current->data) ? current->left : current->right;
+        corrente = (value < corrente->data) ? corrente->left : corrente->right;
     }
     return nullptr;
 }
