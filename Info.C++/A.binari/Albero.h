@@ -1,21 +1,21 @@
 #ifndef ALBERO_H
 #define ALBERO_H
 
-struct Node {
+struct Nodo {
     int data;
-    Node* left;
-    Node* right;
+    Nodo* left;
+    Nodo* right;
 };
 
 class BinaryTree {
 private:
-    Node* testa; 
+    Nodo* testa; 
 
 public:
     BinaryTree();
-    void insert(int value);
+    void inserimento(int value);
     void print();
-    Node* ricerca(int value);
+    Nodo* ricerca(int value);
 };
 
 #endif

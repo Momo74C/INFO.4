@@ -7,15 +7,15 @@ int main()
     BinaryTree tree;
 
     
-    tree.insert(5);
-    tree.insert(2);
-    tree.insert(8);
+    tree.inserimento(5);
+    tree.inserimento(2);
+    tree.inserimento(8);
 
     cout << "Elementi in ordine: ";
     tree.print();
 
 
-    if (tree.ricerca(3)) 
+    if (tree.ricerca(8)) 
     {
         cout << "Valore trovato." << "\n";
     } 
